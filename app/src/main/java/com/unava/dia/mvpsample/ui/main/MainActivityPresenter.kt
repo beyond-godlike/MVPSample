@@ -1,16 +1,18 @@
-package com.unava.dia.mvpsample.lobby
+package com.unava.dia.mvpsample.ui
 
 import com.unava.dia.mvpsample.base.BasePresenter
-import com.unava.dia.mvpsample.common.CommonGreetingUseCase
+import com.unava.dia.mvpsample.api.common.CommonGreetingUseCase
+import com.unava.dia.mvpsample.lobby.LobbyGreetingUseCase
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-internal class LobbyPresenter(
-    view: LobbyGreetingContract.LobbyView,
+internal class MainActivityPresenter(
+    view: MainActivityContract.MainActivityView,
     private val loadCommonGreetingUseCase: CommonGreetingUseCase,
     private val loadLobbyGreetingUseCase: LobbyGreetingUseCase
-) : BasePresenter<LobbyGreetingContract.LobbyView>(view), LobbyGreetingContract.LobbyPresenter {
+) : BasePresenter<MainActivityContract.MainActivityView>(view),
+    MainActivityContract.MainActivityPresenter {
 
     override fun loadCommonGreeting() {
         loadGreeting(loadCommonGreetingUseCase.execute())

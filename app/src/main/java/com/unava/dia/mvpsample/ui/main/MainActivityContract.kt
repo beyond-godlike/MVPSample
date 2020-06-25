@@ -1,8 +1,8 @@
-package com.unava.dia.mvpsample.lobby
+package com.unava.dia.mvpsample.ui
 
-internal interface LobbyGreetingContract {
+internal interface MainActivityContract {
 
-    interface LobbyView {
+    interface MainActivityView {
         fun onCommonGreetingButtonClicked()
         fun onLobbyGreetingButtonClicked()
 
@@ -12,7 +12,7 @@ internal interface LobbyGreetingContract {
         fun setLoadingIndicator(active: Boolean)
     }
 
-    interface LobbyPresenter {
+    interface MainActivityPresenter {
         fun loadCommonGreeting()
         fun loadLobbyGreeting()
     }

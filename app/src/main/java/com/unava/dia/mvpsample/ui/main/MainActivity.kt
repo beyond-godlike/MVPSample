@@ -1,29 +1,27 @@
-package com.unava.dia.mvpsample.lobby
+package com.unava.dia.mvpsample.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.unava.dia.mvpsample.R
 import dagger.android.AndroidInjection
-import javax.inject.Inject
+import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
-import android.text.TextUtils
-import com.unava.dia.mvpsample.lobby.LobbyGreetingContract
-import com.unava.dia.mvpsample.lobby.LobbyPresenter
-import kotlinx.android.synthetic.main.activity_lobby.*
+import javax.inject.Inject
 
-class LobbyActivity : AppCompatActivity(),
-    LobbyGreetingContract.LobbyView {
+class MainActivity : AppCompatActivity(),
+    MainActivityContract.MainActivityView {
 
     @Inject
-    internal lateinit var presenter: LobbyPresenter
+    internal lateinit var presenter: MainActivityPresenter
 
     private val GREETING = "greeting"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lobby)
+        setContentView(R.layout.activity_main)
         AndroidInjection.inject(this)
         btCommonGreeting.setOnClickListener {
             onCommonGreetingButtonClicked()
